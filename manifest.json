@@ -1,0 +1,19 @@
+{
+    "claim_generator": "CAI_Demo/0.1",
+    "assertions": [
+      {
+        "label": "stds.schema-org.CreativeWork",
+        "data": {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Gavin Peacock"
+            }
+          ]
+        }
+      }
+    ],
+    "ingredients": []
+}
