@@ -24,7 +24,11 @@ let exec = util.promisify(child.exec);
 const port = process.env.PORT || 8000;
 
 var app = express();
+
+// serve our web client
 app.use(express.static('client'));
+
+// Allow urls from the uploads folder to be served
 let imageFolder = 'uploads'
 app.use(express.static(imageFolder));
 
@@ -32,11 +36,12 @@ app.use(express.static(imageFolder));
 if(!fs.existsSync(imageFolder)){
   fs.mkdirSync(imageFolder)
 }
+
 // Enable files upload.
 app.use(fileUpload({
   createParentPath: true,
   limits: { 
-      fileSize: 2 * 1024 * 1024 * 1024 //2MB max file(s) size
+      fileSize: 2 * 1024 * 1024 * 1024 // max upload file(s) size
   },
 }));
 
@@ -61,25 +66,24 @@ app.get('/version', async function (req, res) {
 // Uploads a file, adds a C2PA manifest and returns a URL
 app.post('/upload', async (req, res) => { 
   try {
-    let body = req.body
     let fileName = req.query.name;
     let filePath = `${imageFolder}/${fileName}`;
+    // upload the file
     await fsPromises.appendFile(filePath, Buffer.from(req.body),{flag:'w'});
+
+    // call c2patool to add a manifest
     let command = `./c2patool "${filePath}" -m manifest.json -o "${filePath}" -f`;
     let result = await exec(command);
+    // get the manifest store report from stdout
     let report = JSON.parse(result.stdout)
-    //console.log(report);
     res.send({
-      status: "success",
-      message: 'C2PA manifest added',
-      data: {
         name: fileName,
         url: `http://localhost:${port}/${fileName}`,
         report
-      }
-    });
+      });
   } catch (err) {
     console.log(err);
+    // return errors to the client
     res.status(500).send(err);
   }
 });
