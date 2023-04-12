@@ -72,7 +72,7 @@ app.post('/upload', async (req, res) => {
     await fsPromises.appendFile(filePath, Buffer.from(req.body),{flag:'w'});
 
     // call c2patool to add a manifest
-    let command = `./c2patool "${filePath}" -m manifest.json -o "${filePath}" -f`;
+    let command = `./c2patool/c2patool "${filePath}" -m manifest.json -o "${filePath}" -f`;
     let result = await exec(command);
     // get the manifest store report from stdout
     let report = JSON.parse(result.stdout)
