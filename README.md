@@ -1,6 +1,6 @@
 # c2patool Node.js service example 
 
-This is an example of a very simple Node.js service that uploads images and adds a C2PA manifest to each image.  It is written in plain Javascript, HTML, and CSS to be as generic as possible.
+[This repository](https://github.com/contentauth/c2pa-service-example) is an example of a very simple Node.js service that uploads images and adds a C2PA manifest to each image.  It is written in plain Javascript, HTML, and CSS to be as generic as possible.
 
 NOTE: This is **NOT** an example of the C2PA Javascript API. Rather, it demonstrates how a server application using [Express](https://expressjs.com/) can call c2patool to add content credentials in a C2PA manifest to an image. The client JavaScript code simply displays information from the manifests.
 
