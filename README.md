@@ -1,6 +1,6 @@
 # c2patool Node.js service example 
 
-[This repository](https://github.com/contentauth/c2pa-service-example) is an example of a very simple Node.js service that uploads images and adds a C2PA manifest to each image.  It is written in plain Javascript, HTML, and CSS to be as generic as possible.
+[This repository](https://github.com/contentauth/c2patool-service-example) is an example of a very simple Node.js service that uploads images and adds a C2PA manifest to each image.  It is written in plain Javascript, HTML, and CSS to be as generic as possible.
 
 NOTE: This is **NOT** an example of the C2PA Javascript API. Rather, it demonstrates how a server application using [Express](https://expressjs.com/) can call c2patool to add content credentials in a C2PA manifest to an image. The client JavaScript code simply displays information from the manifests.
 
@@ -11,13 +11,13 @@ Follow these steps:
 1. Install Node.js and npm from <https://nodejs.org/en/download>.
 1. Clone this repo by entering this command in a terminal window:
     ```
-    git clone https://github.com/contentauth/c2pa_service_example.git
+    git clone https://github.com/contentauth/c2patool-service-example.git
     ```
 1. Download the latest version of c2patool for your platform from <https://github.com/contentauth/c2patool/releases>.
 1. Extract the zip file and put a copy of the `c2patool` executable in the root of this repo (`c2pa_service_example` directory).  NOTE: Depending on your operating system, you may need to take some extra steps to be able to run this file; for example on MacOS you have to [follow the instructions to open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).  
 1. Open a terminal window and install the required packages. Enter these commands
     ```
-    cd <path_where_you_cloned_repo>/c2pa_service_example
+    cd <path_where_you_cloned_repo>/c2patool-service-example
     npm install
     ```
 1. Start the service by entering this command:
