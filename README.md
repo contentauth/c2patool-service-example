@@ -41,7 +41,7 @@ Follow these steps:
 
 1. Open a browser to <http://localhost:8000>.
 1. Click the **Choose Files** button and select one or more JPEG or PNG images in the native file chooser dialog. 
-    <br/>The service uploads the selected images, stores them in the `uploads` folder, and then calls the c2patool to add a C2PA manifest to each image. 
+    <br/>The service uploads the selected images, stores them in the `uploads` folder, and then calls the C2PA Tool to add a C2PA manifest to each image and signs it with demo certificate and private key built-in to the C2PA Tool.  The signed image is stored in the `uploads` folder.
 3. Hover over the badge for information about the associated manifest.
 4. The service returns the full-sized image, not thumbnails.
 5. Right-click and download an image to view the credentials on <https://verify.contentauthenticity.org/>.
