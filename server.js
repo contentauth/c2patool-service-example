@@ -20,6 +20,11 @@ const fetch = require('node-fetch');
 const util = require('util');
 const child = require('child_process')
 let exec = util.promisify(child.exec);
+/*
+  Change this to an absolute or relative path making sure that c2patool is actually available and installed there.
+  To install c2patool, check: https://github.com/contentauth/c2patool.
+*/
+const c2patool_path = "c2patool"; 
 
 const port = process.env.PORT || 8000;
 
@@ -55,7 +60,7 @@ app.use(morgan('dev'));
 // Runs c2patool to get version info using exec
 app.get('/version', async function (req, res) {
   try {
-    let result = await exec('./c2patool --version');
+    let result = await exec('"${c2patool_path}" --version');
     console.log(result);
     res.send(result.stdout);
   } catch (err) {
@@ -72,7 +77,7 @@ app.post('/upload', async (req, res) => {
     await fsPromises.appendFile(filePath, Buffer.from(req.body),{flag:'w'});
 
     // call c2patool to add a manifest
-    let command = `./c2patool "${filePath}" -m manifest.json -o "${filePath}" -f`;
+    let command = `"${c2patool_path}" "${filePath}" -m manifest.json -o "${filePath}" -f`;
     let result = await exec(command);
     // get the manifest store report from stdout
     let report = JSON.parse(result.stdout)
