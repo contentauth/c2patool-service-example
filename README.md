@@ -13,7 +13,7 @@ Follow these steps:
     ```
     git clone https://github.com/contentauth/c2patool-service-example.git
     ```
-1. Download the latest version of c2patool for your platform from <https://github.com/contentauth/c2patool/releases>.
+1. Download the latest version of c2patool for your platform from https://github.com/contentauth/c2patool/releases.
 1. Extract the zip file and put a copy of the `c2patool` executable in the root of this repo (`c2pa_service_example` directory).  NOTE: Depending on your operating system, you may need to take some extra steps to be able to run this file; for example on MacOS you have to [follow the instructions to open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).  
 1. Open a terminal window and install the required packages. Enter these commands
     ```
